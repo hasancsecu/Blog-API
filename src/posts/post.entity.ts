@@ -1,7 +1,17 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { PostType } from './enums/post-type.enum';
 import { PostStatus } from './enums/post-status.enum';
-import { CreatePostMetaOptionsDto } from './dtos/create-post-metaoptions';
+import { MetaOption } from 'src/meta-options/meta-option.entity';
+import { Tag } from 'src/tags/tag.entity';
 
 @Entity()
 export class Post {
@@ -43,36 +53,38 @@ export class Post {
     type: 'text',
     nullable: true,
   })
-  content: string;
+  content?: string;
 
   @Column({
     type: 'text',
     nullable: true,
   })
-  schema: string;
+  schema?: string;
 
   @Column({
     type: 'varchar',
     length: 1024,
     nullable: true,
   })
-  featuredImageUrl: string;
+  featuredImageUrl?: string;
 
   @Column({
     type: 'timestamp',
     nullable: true,
   })
-  publishOn: Date;
+  publishOn?: Date;
 
-  @Column({
-    type: 'varchar',
-    nullable: true,
-  })
-  tags: string[];
+  // @ManyToMany(() => Tag)
+  // @JoinColumn()
+  // tags?: Tag;
 
-  @Column({
-    type: 'varchar',
-    nullable: true,
-  })
-  metaOptions: CreatePostMetaOptionsDto[];
+  @OneToOne(() => MetaOption, { cascade: true })
+  @JoinColumn()
+  metaOptions?: MetaOption;
+
+  @CreateDateColumn()
+  createDate: Date;
+
+  @UpdateDateColumn()
+  UpdateDate: Date;
 }
