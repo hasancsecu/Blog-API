@@ -51,12 +51,26 @@ export class UsersController {
     return this.usersService.findAll(getUsersParamsDto, limit, page);
   }
 
+  @ApiOperation({
+    summary: 'Create a user',
+  })
+  @ApiResponse({
+    status: 201,
+    description: 'User Created Successfully',
+  })
   @Post()
   public CreateUser(@Body() createUserDto: CreateUserDto) {
-    return createUserDto;
+    return this.usersService.createUser(createUserDto);
   }
 
-  @Patch()
+  @ApiOperation({
+    summary: 'Update a user',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'User Updated Successfully',
+  })
+  @Patch('/:id')
   public PatchUser(@Body() patchUserDto: PatchUserDto) {
     return patchUserDto;
   }
