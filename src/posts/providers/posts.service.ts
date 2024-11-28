@@ -26,7 +26,6 @@ export class PostsService {
     let tags = await this.tagsService.findMultipleTags(createPostDto.tags);
 
     let author = await this.usersService.findOneById(createPostDto.authorId);
-    console.log(author);
     let newPost = this.postRepository.create({
       ...createPostDto,
       author,
