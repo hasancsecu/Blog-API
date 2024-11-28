@@ -1,7 +1,9 @@
+import { Post } from 'src/posts/post.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -39,6 +41,9 @@ export class User {
     nullable: false,
   })
   password: string;
+
+  @OneToMany(() => Post, (post) => post.author)
+  posts: Post[];
 
   @CreateDateColumn()
   createDate: Date;

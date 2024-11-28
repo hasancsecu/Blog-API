@@ -50,9 +50,8 @@ export class Tag {
   })
   featuredImageUrl?: string;
 
-  // @ManyToMany(() => Post)
-  // @JoinColumn()
-  // posts?: Post;
+  // @ManyToMany(() => Post, (post) => post.tags)
+  // posts?: Post[];
 
   @CreateDateColumn()
   createDate: Date;

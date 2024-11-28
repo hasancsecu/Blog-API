@@ -2,6 +2,7 @@ import { PostStatus } from '../enums/post-status.enum';
 import {
   IsArray,
   IsEnum,
+  IsInt,
   IsISO8601,
   IsJSON,
   IsNotEmpty,
@@ -67,12 +68,16 @@ export class CreatePostDto {
   @IsOptional()
   publishOn?: Date;
 
-  // @ApiPropertyOptional()
-  // @IsArray()
-  // @IsOptional()
-  // @IsString({ each: true })
-  // @MinLength(3, { each: true })
-  // tags?: string[];
+  @ApiPropertyOptional()
+  @IsArray()
+  @IsOptional()
+  @IsInt({ each: true })
+  tags?: number[];
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsInt()
+  authorId?: number;
 
   @ApiPropertyOptional({ type: 'object' })
   @IsOptional()

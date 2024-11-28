@@ -25,10 +25,7 @@ export class UsersService {
   }
 
   public findOneById(id: number) {
-    return {
-      firstName: 'Sourav',
-      email: 'hellosourav@email.com',
-    };
+    return this.userRepository.findOneBy({ id });
   }
 
   public async create(createUserDto: CreateUserDto) {

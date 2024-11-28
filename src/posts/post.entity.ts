@@ -3,7 +3,9 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
   ManyToMany,
+  ManyToOne,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -12,6 +14,7 @@ import { PostType } from './enums/post-type.enum';
 import { PostStatus } from './enums/post-status.enum';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
 import { Tag } from 'src/tags/tag.entity';
+import { User } from 'src/users/user.entity';
 
 @Entity()
 export class Post {
@@ -74,13 +77,21 @@ export class Post {
   })
   publishOn?: Date;
 
-  // @ManyToMany(() => Tag)
-  // @JoinColumn()
-  // tags?: Tag;
+  @ManyToMany(() => Tag, { eager: true })
+  @JoinTable()
+  tags?: Tag[];
 
-  @OneToOne(() => MetaOption, { cascade: true })
+  @OneToOne(() => MetaOption, (metaOptions) => metaOptions.post, {
+    cascade: true,
+    eager: true,
+  })
   @JoinColumn()
   metaOptions?: MetaOption;
+
+  @ManyToOne(() => User, (user) => user.posts, {
+    eager: true,
+  })
+  author: User;
 
   @CreateDateColumn()
   createDate: Date;
