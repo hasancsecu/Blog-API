@@ -37,8 +37,11 @@ export class PostsController {
   })
   @ApiResponse({ status: 200, description: 'Post Updated Succesfully' })
   @Patch('/:id')
-  public UpdatePost(@Body() patchPostDto: PatchPostDto) {
-    return patchPostDto;
+  public UpdatePost(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() patchPostDto: PatchPostDto,
+  ) {
+    return this.postsService.update(id, patchPostDto);
   }
 
   @Delete('/:id')
