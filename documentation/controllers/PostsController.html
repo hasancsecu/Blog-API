@@ -152,24 +152,24 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                <a href="#CreatePost" >CreatePost</a>
+                                <a href="#createPost" >createPost</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                <a href="#Delete" >Delete</a>
+                                <a href="#deletePost" >deletePost</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                <a href="#GetPosts" >GetPosts</a>
+                                <a href="#getPosts" >getPosts</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                <a href="#UpdatePost" >UpdatePost</a>
+                                <a href="#updatePost" >updatePost</a>
                             </li>
                         </ul>
                     </td>
@@ -192,21 +192,21 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="CreatePost"></a>
+                    <a name="createPost"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                        <span ><b>CreatePost</b></span>
-                        <a href="#CreatePost"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createPost</b></span>
+                        <a href="#createPost"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>CreatePost(createPostDto: <a href="../classes/CreatePostDto.html" target="_self">CreatePostDto</a>)</code>
+                    <code>createPost(createPostDto: <a href="../classes/CreatePostDto.html" target="_self">CreatePostDto</a>, user: <a href="../interfaces/ActiveUserData.html" target="_self">ActiveUserData</a>)</code>
                 </td>
             </tr>
 
@@ -214,14 +214,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiOperation({summary: &#x27;Create a blog post&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Post Created Succesfully&#x27;})<br />@Post()<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Creates a new blog post&#x27;})<br />@ApiResponse({status: 201, description: &#x27;You get a 201 response if your post is created successfully&#x27;})<br />@Post()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/posts/posts.controller.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/posts/posts.controller.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -253,6 +253,18 @@
 
 
                                         </tr>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ActiveUserData.html" target="_self" >ActiveUserData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -271,19 +283,19 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="Delete"></a>
+                    <a name="deletePost"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                        <span ><b>Delete</b></span>
-                        <a href="#Delete"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deletePost</b></span>
+                        <a href="#deletePost"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>Delete(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    <code>deletePost(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
@@ -291,14 +303,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/:id&#x27;)<br /></code>
+                    <code>@Delete()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="45"
-                                    class="link-to-prism">src/posts/posts.controller.ts:45</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/posts/posts.controller.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -348,19 +360,19 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="GetPosts"></a>
+                    <a name="getPosts"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                        <span ><b>GetPosts</b></span>
-                        <a href="#GetPosts"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getPosts</b></span>
+                        <a href="#getPosts"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>GetPosts()</code>
+                    <code>getPosts(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, postQuery: <a href="../classes/GetPostsDto.html" target="_self">GetPostsDto</a>)</code>
                 </td>
             </tr>
 
@@ -368,14 +380,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br /></code>
+                    <code>@Get(&#x27;/:userId?&#x27;)<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/posts/posts.controller.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/posts/posts.controller.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -383,10 +395,52 @@
             <tr>
                 <td class="col-md-4">
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>postQuery</td>
+                                            <td>
+                                                            <code><a href="../classes/GetPostsDto.html" target="_self" >GetPostsDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -395,21 +449,21 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="UpdatePost"></a>
+                    <a name="updatePost"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                        <span ><b>UpdatePost</b></span>
-                        <a href="#UpdatePost"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updatePost</b></span>
+                        <a href="#updatePost"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>UpdatePost(patchPostDto: <a href="../classes/PatchPostDto.html" target="_self">PatchPostDto</a>)</code>
+                    <code>updatePost(patchPostDto: <a href="../classes/PatchPostDto.html" target="_self">PatchPostDto</a>)</code>
                 </td>
             </tr>
 
@@ -417,14 +471,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiOperation({summary: &#x27;Update a blog post&#x27;})<br />@ApiResponse({status: 200, description: &#x27;Post Updated Succesfully&#x27;})<br />@Patch(&#x27;/:id&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Updates an existing blog post&#x27;})<br />@ApiResponse({status: 200, description: &#x27;A 200 response if the post is updated successfully&#x27;})<br />@Patch()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="40"
-                                    class="link-to-prism">src/posts/posts.controller.ts:40</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/posts/posts.controller.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -460,7 +514,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/PatchPostDto.html" target="_self" >PatchPostDto</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -483,42 +537,66 @@
   ParseIntPipe,
   Patch,
   Post,
+  Query,
 } from &#x27;@nestjs/common&#x27;;
 import { PostsService } from &#x27;./providers/posts.service&#x27;;
 import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { CreatePostDto } from &#x27;./dtos/create-post.dto&#x27;;
 import { PatchPostDto } from &#x27;./dtos/patch-post.dto&#x27;;
+import { GetPostsDto } from &#x27;./dtos/get-post.dto&#x27;;
+import { ActiveUser } from &#x27;src/auth/decorators/active-user.decorator&#x27;;
+import { ActiveUserData } from &#x27;src/auth/interfaces/active-user-data.interface&#x27;;
 
 @Controller(&#x27;posts&#x27;)
 @ApiTags(&#x27;Posts&#x27;)
 export class PostsController {
-  constructor(private readonly postsService: PostsService) {}
+  constructor(
+    /*
+     *  Injecting Posts Service
+     */
+    private readonly postsService: PostsService,
+  ) {}
 
-  @Get()
-  public GetPosts() {
-    return this.postsService.findAll();
+  /*
+   * GET localhost:3000/posts/:userId
+   */
+  @Get(&#x27;/:userId?&#x27;)
+  public getPosts(
+    @Param(&#x27;userId&#x27;) userId: string,
+    @Query() postQuery: GetPostsDto,
+  ) {
+    return this.postsService.findAll(postQuery, userId);
   }
 
   @ApiOperation({
-    summary: &#x27;Create a blog post&#x27;,
+    summary: &#x27;Creates a new blog post&#x27;,
   })
-  @ApiResponse({ status: 201, description: &#x27;Post Created Succesfully&#x27; })
+  @ApiResponse({
+    status: 201,
+    description: &#x27;You get a 201 response if your post is created successfully&#x27;,
+  })
   @Post()
-  public CreatePost(@Body() createPostDto: CreatePostDto) {
-    return this.postsService.create(createPostDto);
+  public createPost(
+    @Body() createPostDto: CreatePostDto,
+    @ActiveUser() user: ActiveUserData,
+  ) {
+    return this.postsService.create(createPostDto, user);
   }
 
   @ApiOperation({
-    summary: &#x27;Update a blog post&#x27;,
+    summary: &#x27;Updates an existing blog post&#x27;,
   })
-  @ApiResponse({ status: 200, description: &#x27;Post Updated Succesfully&#x27; })
-  @Patch(&#x27;/:id&#x27;)
-  public UpdatePost(@Body() patchPostDto: PatchPostDto) {
-    return patchPostDto;
+  @ApiResponse({
+    status: 200,
+    description: &#x27;A 200 response if the post is updated successfully&#x27;,
+  })
+  @Patch()
+  public updatePost(@Body() patchPostDto: PatchPostDto) {
+    return this.postsService.update(patchPostDto);
   }
 
-  @Delete(&#x27;/:id&#x27;)
-  public Delete(@Param(&#x27;id&#x27;, ParseIntPipe) id: number) {
+  @Delete()
+  public deletePost(@Query(&#x27;id&#x27;, ParseIntPipe) id: number) {
     return this.postsService.delete(id);
   }
 }

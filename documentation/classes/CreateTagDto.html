@@ -150,7 +150,6 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier">Optional</span>
                                 <a href="#description" >description</a>
                             </li>
                             <li>
@@ -158,10 +157,10 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier">Optional</span>
-                                <a href="#featuredImageUrl" >featuredImageUrl</a>
+                                <a href="#featuredImage" >featuredImage</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -172,7 +171,6 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier">Optional</span>
                                 <a href="#schema" >schema</a>
                             </li>
                             <li>
@@ -211,7 +209,6 @@
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier">Optional</span>
                         <span ><b>description</b></span>
                         <a href="#description"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -228,13 +225,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional()<br />@IsString()<br />@IsOptional()<br />
+                            @ApiPropertyOptional()<br />@IsOptional()<br />@IsString()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -245,15 +242,14 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="featuredImageUrl"></a>
+                    <a name="featuredImage"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier">Optional</span>
-                        <span ><b>featuredImageUrl</b></span>
-                        <a href="#featuredImageUrl"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>featuredImage</b></span>
+                        <a href="#featuredImage"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -268,13 +264,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional()<br />@IsUrl()<br />@IsOptional()<br />@MaxLength(1024)<br />
+                            @ApiPropertyOptional()<br />@IsOptional()<br />@IsUrl()<br />@MaxLength(1024)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -287,6 +283,7 @@
                 <td class="col-md-4">
                     <a name="name"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
@@ -307,13 +304,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />@MaxLength(256)<br />
+                            @ApiProperty()<br />@IsString()<br />@MinLength(3)<br />@IsNotEmpty()<br />@MaxLength(256)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -329,7 +326,6 @@
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier">Optional</span>
                         <span ><b>schema</b></span>
                         <a href="#schema"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -346,13 +342,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional()<br />@IsJSON()<br />@IsOptional()<br />
+                            @ApiPropertyOptional()<br />@IsOptional()<br />@IsJSON()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -386,13 +382,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />@Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {message: &#x27;A slug should be all small letters and uses only &quot;-&quot; and without spaces. For example &quot;my-url&quot;&#x27;})<br />@MaxLength(256)<br />
+                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />@Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {message: &#x27;A slug should be all small letters and uses only &quot;-&quot; and without spaces. For example &quot;my-url&quot;&#x27;})<br />@MaxLength(512)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/tags/dtos/create-tag.dto.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -420,11 +416,13 @@ import {
   IsUrl,
   Matches,
   MaxLength,
+  MinLength,
 } from &#x27;class-validator&#x27;;
 
 export class CreateTagDto {
   @ApiProperty()
   @IsString()
+  @MinLength(3)
   @IsNotEmpty()
   @MaxLength(256)
   name: string;
@@ -436,24 +434,24 @@ export class CreateTagDto {
     message:
       &#x27;A slug should be all small letters and uses only &quot;-&quot; and without spaces. For example &quot;my-url&quot;&#x27;,
   })
-  @MaxLength(256)
+  @MaxLength(512)
   slug: string;
 
   @ApiPropertyOptional()
+  @IsOptional()
   @IsString()
-  @IsOptional()
-  description?: string;
+  description: string;
 
   @ApiPropertyOptional()
+  @IsOptional()
   @IsJSON()
-  @IsOptional()
-  schema?: string;
+  schema: string;
 
   @ApiPropertyOptional()
-  @IsUrl()
   @IsOptional()
+  @IsUrl()
   @MaxLength(1024)
-  featuredImageUrl?: string;
+  featuredImage: string;
 }
 </code></pre>
     </div>

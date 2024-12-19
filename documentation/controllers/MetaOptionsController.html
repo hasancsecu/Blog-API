@@ -149,10 +149,9 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Public</span>
-                                <a href="#Create" >Create</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#create" >create</a>
                             </li>
                         </ul>
                     </td>
@@ -175,21 +174,20 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="Create"></a>
+                    <a name="create"></a>
                     <span class="name">
                             <span class="modifier"></span>
-                            <span class="modifier"></span>
-                            <span class="modifier"></span>
                             <span class="modifier">Public</span>
-                        <span ><b>Create</b></span>
-                        <a href="#Create"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Async</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>Create(createPostMetaOptionsDto: <a href="../classes/CreatePostMetaOptionsDto.html" target="_self">CreatePostMetaOptionsDto</a>)</code>
+                    <code>create(createPostMetaOptionsDto: <a href="../classes/CreatePostMetaOptionsDto.html" target="_self">CreatePostMetaOptionsDto</a>)</code>
                 </td>
             </tr>
 
@@ -197,14 +195,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiOperation({summary: &#x27;Create a meta option&#x27;})<br />@ApiResponse({status: 201, description: &#x27;Meta option Created Succesfully&#x27;})<br />@Post()<br /></code>
+                    <code>@Post()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/meta-options/meta-options.controller.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">src/meta-options/meta-options.controller.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -240,7 +238,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
@@ -254,23 +252,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CreatePostMetaOptionsDto } from &#x27;./dtos/create-post-meta-options.dto&#x27;;
 import { MetaOptionsService } from &#x27;./providers/meta-options.service&#x27;;
-import { CreatePostMetaOptionsDto } from &#x27;./dtos/create-post-metaoptions&#x27;;
-import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
 
 @Controller(&#x27;meta-options&#x27;)
-@ApiTags(&#x27;Meta Options&#x27;)
 export class MetaOptionsController {
-  constructor(private readonly metaOptionsService: MetaOptionsService) {}
+  constructor(
+    /**
+     * Inject MetaOptionsService
+     * */
+    private readonly MetaOptionsService: MetaOptionsService,
+  ) {}
 
-  @ApiOperation({
-    summary: &#x27;Create a meta option&#x27;,
-  })
-  @ApiResponse({ status: 201, description: &#x27;Meta option Created Succesfully&#x27; })
   @Post()
-  public Create(@Body() createPostMetaOptionsDto: CreatePostMetaOptionsDto) {
-    return this.metaOptionsService.create(createPostMetaOptionsDto);
+  public async create(
+    @Body() createPostMetaOptionsDto: CreatePostMetaOptionsDto,
+  ) {
+    return this.MetaOptionsService.create(createPostMetaOptionsDto);
   }
 }
 </code></pre>

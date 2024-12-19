@@ -150,7 +150,6 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                 <a href="#email" >email</a>
                             </li>
                             <li>
@@ -158,11 +157,9 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                 <a href="#firstName" >firstName</a>
                             </li>
                             <li>
-                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -206,7 +203,6 @@
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier"></span>
                         <span ><b>email</b></span>
                         <a href="#email"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -223,13 +219,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsEmail()<br />@IsNotEmpty()<br />@MaxLength(100)<br />
+                            @IsEmail()<br />@IsNotEmpty()<br />@MaxLength(96)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/users/dtos/create-user.dto.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/users/dtos/create-user.dto.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -242,7 +238,6 @@
                 <td class="col-md-4">
                     <a name="firstName"></a>
                     <span class="name">
-                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
@@ -263,13 +258,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />@MinLength(3)<br />@MaxLength(100)<br />
+                            @IsString()<br />@IsNotEmpty()<br />@MinLength(3)<br />@MaxLength(96)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/users/dtos/create-user.dto.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/users/dtos/create-user.dto.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -282,7 +277,6 @@
                 <td class="col-md-4">
                     <a name="lastName"></a>
                     <span class="name">
-                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
@@ -304,13 +298,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional()<br />@IsString()<br />@IsOptional()<br />@MinLength(3)<br />@MaxLength(100)<br />
+                            @IsString()<br />@IsOptional()<br />@MinLength(3)<br />@MaxLength(96)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/users/dtos/create-user.dto.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/users/dtos/create-user.dto.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -344,13 +338,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@IsString()<br />@IsNotEmpty()<br />@MaxLength(100)<br />@IsStrongPassword({minLength: 8, minNumbers: 1, minSymbols: 1, minUppercase: 1}, {message: &#x27;At least 8 characters, one symbol, one uppercase and one number&#x27;})<br />
+                            @IsString()<br />@IsNotEmpty()<br />@MinLength(8)<br />@MaxLength(96)<br />@Matches(/^(?&#x3D;.*[A-Za-z])(?&#x3D;.*\d)(?&#x3D;.*[@$!%*#?&amp;])[A-Za-z\d@$!%*#?&amp;]{8,}$/, {message: &#x27;Minimum eight characters, at least one letter, one number and one special character&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/users/dtos/create-user.dto.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/users/dtos/create-user.dto.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -369,54 +363,42 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   IsEmail,
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsStrongPassword,
+  Matches,
   MaxLength,
   MinLength,
 } from &#x27;class-validator&#x27;;
 
 export class CreateUserDto {
-  @ApiProperty()
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
-  @MaxLength(100)
+  @MaxLength(96)
   firstName: string;
 
-  @ApiPropertyOptional()
   @IsString()
   @IsOptional()
   @MinLength(3)
-  @MaxLength(100)
+  @MaxLength(96)
   lastName?: string;
 
-  @ApiProperty()
   @IsEmail()
   @IsNotEmpty()
-  @MaxLength(100)
+  @MaxLength(96)
   email: string;
 
-  @ApiProperty()
   @IsString()
   @IsNotEmpty()
-  @MaxLength(100)
-  @IsStrongPassword(
-    {
-      minLength: 8,
-      minNumbers: 1,
-      minSymbols: 1,
-      minUppercase: 1,
-    },
-    {
-      message:
-        &#x27;At least 8 characters, one symbol, one uppercase and one number&#x27;,
-    },
-  )
+  @MinLength(8)
+  @MaxLength(96)
+  @Matches(/^(?&#x3D;.*[A-Za-z])(?&#x3D;.*\d)(?&#x3D;.*[@$!%*#?&amp;])[A-Za-z\d@$!%*#?&amp;]{8,}$/, {
+    message:
+      &#x27;Minimum eight characters, at least one letter, one number and one special character&#x27;,
+  })
   password: string;
 }
 </code></pre>

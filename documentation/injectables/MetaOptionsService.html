@@ -236,8 +236,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/meta-options/providers/meta-options.service.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/meta-options/providers/meta-options.service.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -289,25 +289,27 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { CreatePostMetaOptionsDto } from &#x27;../dtos/create-post-metaoptions&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CreatePostMetaOptionsDto } from &#x27;../dtos/create-post-meta-options.dto&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { MetaOption } from &#x27;../meta-option.entity&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 
 @Injectable()
 export class MetaOptionsService {
   constructor(
+    /**
+     * Injecting metaOptions repository
+     */
     @InjectRepository(MetaOption)
     private metaOptionsRepository: Repository&lt;MetaOption&gt;,
   ) {}
+
   public async create(createPostMetaOptionsDto: CreatePostMetaOptionsDto) {
-    let newMetaOption &#x3D; this.metaOptionsRepository.create(
+    let metaOption &#x3D; this.metaOptionsRepository.create(
       createPostMetaOptionsDto,
     );
-    newMetaOption &#x3D; await this.metaOptionsRepository.save(newMetaOption);
-
-    return newMetaOption;
+    return await this.metaOptionsRepository.save(metaOption);
   }
 }
 </code></pre>

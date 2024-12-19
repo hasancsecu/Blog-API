@@ -152,11 +152,12 @@
                             </li>
                             <li>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                 <a href="#post" >post</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
-                                <a href="#UpdateDate" >UpdateDate</a>
+                                <a href="#updateDate" >updateDate</a>
                             </li>
                         </ul>
                     </td>
@@ -205,7 +206,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/meta-options/meta-option.entity.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/meta-options/meta-option.entity.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -241,7 +242,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/meta-options/meta-option.entity.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/meta-options/meta-option.entity.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -277,7 +278,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/meta-options/meta-option.entity.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/meta-options/meta-option.entity.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -290,6 +291,7 @@
                 <td class="col-md-4">
                     <a name="post"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                         <span ><b>post</b></span>
                         <a href="#post"><span class="icon ion-ios-link"></span></a>
@@ -307,13 +309,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @OneToOne(undefined, post &#x3D;&gt; post.metaOptions)<br />
+                            @OneToOne(undefined, post &#x3D;&gt; post.metaOptions, {onDelete: &#x27;CASCADE&#x27;})<br />@JoinColumn()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/meta-options/meta-option.entity.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/meta-options/meta-option.entity.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -324,11 +326,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="UpdateDate"></a>
+                    <a name="updateDate"></a>
                     <span class="name">
                             <span class="modifier"></span>
-                        <span ><b>UpdateDate</b></span>
-                        <a href="#UpdateDate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateDate</b></span>
+                        <a href="#updateDate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -349,7 +351,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/meta-options/meta-option.entity.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/meta-options/meta-option.entity.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -361,16 +363,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Post } from &#x27;src/posts/post.entity&#x27;;
-import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from &#x27;typeorm&#x27;;
+
+import { Post } from &#x27;src/posts/post.entity&#x27;;
 
 @Entity()
 export class MetaOption {
@@ -383,14 +387,17 @@ export class MetaOption {
   })
   metaValue: string;
 
-  @OneToOne(() &#x3D;&gt; Post, (post) &#x3D;&gt; post.metaOptions)
-  post: Post;
-
   @CreateDateColumn()
   createDate: Date;
 
   @UpdateDateColumn()
-  UpdateDate: Date;
+  updateDate: Date;
+
+  @OneToOne(() &#x3D;&gt; Post, (post) &#x3D;&gt; post.metaOptions, {
+    onDelete: &#x27;CASCADE&#x27;,
+  })
+  @JoinColumn()
+  post: Post;
 }
 </code></pre>
     </div>
