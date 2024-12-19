@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "ee45aa93-ae42-4092-a62d-3d608bf6fa60",
+		"name": "BlogApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5219757"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BlogApiUrl}}/users",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "Hasan",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Sourav",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hasan@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Password@123",
+							"type": "text"
+						},
+						{
+							"key": "isAuth",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BlogApiUrl}}/users",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BlogApiUrl}}/posts?page=1&limit=10",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"test post\",\r\n    \"content\":\"test desc\",\r\n    \"slug\":\"test-post\",\r\n    \"metaOptions\": {\"metaValue\": \"{\\\"sidebarEnabled\\\": true, \\\"footerEnabled\\\": true}\"},\r\n    \"postType\":\"post\",\r\n    \"status\":\"draft\",\r\n    \"tags\": [1,2],\r\n    \"authorId\": 1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BlogApiUrl}}/posts",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Post",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tags\": [1]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BlogApiUrl}}/posts/7",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"posts",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BlogApiUrl}}/posts/4",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"posts",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Meta Options",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BlogApiUrl}}/meta-options",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"meta-options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Meta Option",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"metaValue\": \"{\\\"sidebarEnabled\\\": true, \\\"footerEnabled\\\": true}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BlogApiUrl}}/meta-options",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"meta-options"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Tags",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BlogApiUrl}}/tags",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Tag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Python\",\r\n    \"slug\": \"python\",\r\n    \"description\": \"py desc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BlogApiUrl}}/tags",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"tags"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Tag",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BlogApiUrl}}/tags/2",
+					"host": [
+						"{{BlogApiUrl}}"
+					],
+					"path": [
+						"tags",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BlogApiUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
