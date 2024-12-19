@@ -1,4 +1,3 @@
-import { BcryptProvider } from './../../auth/providers/bcrypt.provider';
 import {
   BadRequestException,
   Inject,
@@ -11,6 +10,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../user.entity';
 import { Repository } from 'typeorm';
 import { HashingProvider } from 'src/auth/providers/hashing.provider';
+import { MailService } from 'src/mail/providers/mail.service';
 
 @Injectable()
 export class CreateUserProvider {
@@ -26,6 +26,8 @@ export class CreateUserProvider {
      */
     @Inject(forwardRef(() => HashingProvider))
     private readonly hashingProvider: HashingProvider,
+
+    private readonly mailService: MailService,
   ) {}
 
   public async createUser(createUserDto: CreateUserDto) {
@@ -69,6 +71,12 @@ export class CreateUserProvider {
           description: 'Error connecting to the the datbase',
         },
       );
+    }
+
+    try {
+      await this.mailService.sendWelcomeMail(newUser);
+    } catch (error) {
+      throw new RequestTimeoutException(error);
     }
 
     return newUser;
