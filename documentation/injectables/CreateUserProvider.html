@@ -170,7 +170,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/users/providers/create-user.provider.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/users/providers/create-user.provider.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -260,8 +260,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/users/providers/create-user.provider.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/users/providers/create-user.provider.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -313,7 +313,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BcryptProvider } from &#x27;./../../auth/providers/bcrypt.provider&#x27;;
+import {
   BadRequestException,
   Inject,
   Injectable,
@@ -342,6 +343,9 @@ export class CreateUserProvider {
     @Inject(forwardRef(() &#x3D;&gt; HashingProvider))
     private readonly hashingProvider: HashingProvider,
 
+    /**
+     * Inject mailService
+     */
     private readonly mailService: MailService,
   ) {}
 
@@ -389,7 +393,7 @@ export class CreateUserProvider {
     }
 
     try {
-      await this.mailService.sendWelcomeMail(newUser);
+      await this.mailService.sendUserWelcome(newUser);
     } catch (error) {
       throw new RequestTimeoutException(error);
     }

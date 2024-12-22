@@ -86,21 +86,16 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content guard">
+               <div class="content controller">
                    <div class="content-data">
 
 
 
 
 
-
-
-
-
-
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Guards</li>
-    <li class="breadcrumb-item" >AuthenticationGuard</li>
+  <li class="breadcrumb-item">Controllers</li>
+  <li class="breadcrumb-item" >UploadsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -119,12 +114,19 @@
 </ul>
 
 <div class="tab-content">
-        <div class="tab-pane fade active in" id="info">
-            <p class="comment">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
             <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/uploads/uploads.controller.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>src/auth/guards/authentication/authentication.guard.ts</code>
+                <code>uploads</code>
             </p>
 
 
@@ -132,32 +134,10 @@
 
 
 
-                <section data-compodoc="block-index">
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#authTypeGuardMap" >authTypeGuardMap</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Static</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#defaultAuthType" >defaultAuthType</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -168,8 +148,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#canActivate" >canActivate</a>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#uploadFile" >uploadFile</a>
                             </li>
                         </ul>
                     </td>
@@ -183,68 +167,7 @@
     </table>
 </section>
 
-                <section data-compodoc="block-constructor">
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(reflector: Reflector, accessTokenGuard: <a href="../guards/AccessTokenGuard.html" target="_self">AccessTokenGuard</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/auth/guards/authentication/authentication.guard.ts:26</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>reflector</td>
-                                                  
-                                                        <td>
-                                                                    <code>Reflector</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>accessTokenGuard</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../guards/AccessTokenGuard.html" target="_self" >AccessTokenGuard</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-                <section data-compodoc="block-methods">
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -253,26 +176,37 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="canActivate"></a>
+                    <a name="uploadFile"></a>
                     <span class="name">
-                            <span class="modifier">Async</span>
-                        <span ><b>canActivate</b></span>
-                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>uploadFile</b></span>
+                        <a href="#uploadFile"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>canActivate(context: ExecutionContext)</code>
+                    <code>uploadFile(file: Express.Multer.File)</code>
                 </td>
             </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseInterceptors(undefined)<br />@ApiHeaders([&#x27;undefined&#x27;, &#x27;undefined&#x27;])<br />@ApiOperation({summary: Upload a new image to the server})<br />@Post(&#x27;file&#x27;)<br /></code>
+                </td>
+            </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/auth/guards/authentication/authentication.guard.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">src/uploads/uploads.controller.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -293,9 +227,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>context</td>
+                                                <td>file</td>
                                             <td>
-                                                        <code>ExecutionContext</code>
+                                                        <code>Express.Multer.File</code>
                                             </td>
 
                                             <td>
@@ -308,7 +242,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -318,76 +252,55 @@
             </tr>
         </tbody>
     </table>
-</section>
-        </div>
+</section>    </div>
 
 
-        <div class="tab-pane fade  tab-source-code" id="source">
-            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  CanActivate,
-  ExecutionContext,
-  Injectable,
-  UnauthorizedException,
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiHeaders, ApiOperation } from &#x27;@nestjs/swagger&#x27;;
+import {
+  Controller,
+  Post,
+  UploadedFile,
+  UseInterceptors,
 } from &#x27;@nestjs/common&#x27;;
-
-import { AUTH_TYPE_KEY } from &#x27;src/auth/decorators/auth.decorator&#x27;;
-import { AccessTokenGuard } from &#x27;../access-token/access-token.guard&#x27;;
+import { Express } from &#x27;express&#x27;;
+import { FileInterceptor } from &#x27;@nestjs/platform-express&#x27;;
+import { UploadsService } from &#x27;./providers/uploads.service&#x27;;
+import { Auth } from &#x27;src/auth/decorators/auth.decorator&#x27;;
 import { AuthType } from &#x27;src/auth/enums/auth-type.enum&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { Reflector } from &#x27;@nestjs/core&#x27;;
 
-@Injectable()
-export class AuthenticationGuard implements CanActivate {
-  // Set the default Auth Type
-  private static readonly defaultAuthType &#x3D; AuthType.Bearer;
-
-  // Create authTypeGuardMap
-  private readonly authTypeGuardMap: Record&lt;
-    AuthType,
-    CanActivate | CanActivate[]
-  &gt; &#x3D; {
-    [AuthType.Bearer]: this.accessTokenGuard,
-    [AuthType.None]: { canActivate: () &#x3D;&gt; true },
-  };
-
+@Auth(AuthType.None)
+@Controller(&#x27;uploads&#x27;)
+export class UploadsController {
   constructor(
-    private readonly reflector: Reflector,
-    private readonly accessTokenGuard: AccessTokenGuard,
+    /**
+     * inject uploadsService
+     */
+    private readonly uploadsService: UploadsService,
   ) {}
 
-  async canActivate(context: ExecutionContext): Promise&lt;boolean&gt; {
-    const authTypes &#x3D; this.reflector.getAllAndOverride&lt;AuthType[]&gt;(
-      AUTH_TYPE_KEY,
-      [context.getHandler(), context.getClass()],
-    ) ?? [AuthenticationGuard.defaultAuthType];
-
-    const guards &#x3D; authTypes.map((type) &#x3D;&gt; this.authTypeGuardMap[type]).flat();
-
-    // Declare the default error
-    let error &#x3D; new UnauthorizedException();
-
-    for (const instance of guards) {
-      // Decalre a new constant
-      const canActivate &#x3D; await Promise.resolve(
-        // Here the AccessToken Guard Will be fired and check if user has permissions to acces
-        // Later Multiple AuthTypes can be used even if one of them returns true
-        // The user is Authorised to access the resource
-        instance.canActivate(context),
-      ).catch((err) &#x3D;&gt; {
-        error &#x3D; err;
-      });
-
-      if (canActivate) {
-        return true;
-      }
-    }
-
-    throw error;
+  // File is the field name
+  @UseInterceptors(FileInterceptor(&#x27;file&#x27;))
+  @ApiHeaders([
+    { name: &#x27;Content-Type&#x27;, description: &#x27;multipart/form-data&#x27; },
+    { name: &#x27;Authorization&#x27;, description: &#x27;Bearer Token&#x27; },
+  ])
+  @ApiOperation({
+    summary: &#x60;Upload a new image to the server&#x60;,
+  })
+  @Post(&#x27;file&#x27;)
+  public uploadFile(@UploadedFile() file: Express.Multer.File) {
+    return this.uploadsService.uploadFile(file);
   }
 }
 </code></pre>
-        </div>
+    </div>
 </div>
+
+
+
+
+
 
 
 
@@ -424,8 +337,8 @@ export class AuthenticationGuard implements CanActivate {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationGuard.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
+            var COMPODOC_CURRENT_PAGE_URL = 'UploadsController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

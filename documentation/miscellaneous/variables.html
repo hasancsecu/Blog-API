@@ -128,7 +128,19 @@
                             <a href="#AUTH_TYPE_KEY" title="src/auth/decorators/auth.decorator.ts" ><b>AUTH_TYPE_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../auth.decorator.ts)</a>
                         </li>
                         <li>
+                            <a href="#completeUser" title="test/users/users.post.e2e-spec.sample-data.ts" ><b>completeUser</b>&nbsp;&nbsp;&nbsp;(test/.../users.post.e2e-spec.sample-data.ts)</a>
+                        </li>
+                        <li>
                             <a href="#ENV" title="src/app.module.ts" ><b>ENV</b>&nbsp;&nbsp;&nbsp;(src/.../app.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#misingFirstName" title="test/users/users.post.e2e-spec.sample-data.ts" ><b>misingFirstName</b>&nbsp;&nbsp;&nbsp;(test/.../users.post.e2e-spec.sample-data.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#missingEmail" title="test/users/users.post.e2e-spec.sample-data.ts" ><b>missingEmail</b>&nbsp;&nbsp;&nbsp;(test/.../users.post.e2e-spec.sample-data.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#missingPassword" title="test/users/users.post.e2e-spec.sample-data.ts" ><b>missingPassword</b>&nbsp;&nbsp;&nbsp;(test/.../users.post.e2e-spec.sample-data.ts)</a>
                         </li>
                         <li>
                             <a href="#REQUEST_USER_KEY" title="src/auth/constants/auth.constants.ts" ><b>REQUEST_USER_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../auth.constants.ts)</a>
@@ -214,6 +226,130 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>&#x27;authType&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>test/users/users.post.e2e-spec.sample-data.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="completeUser"></a>
+                    <span class="name">
+                        <span ><b>completeUser</b></span>
+                        <a href="#completeUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  firstName: faker.person.firstName(),
+  lastName: faker.person.lastName(),
+  email: faker.internet.email(),
+  password: &#x27;Password123#&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="misingFirstName"></a>
+                    <span class="name">
+                        <span ><b>misingFirstName</b></span>
+                        <a href="#misingFirstName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  lastName: faker.person.lastName(),
+  email: faker.internet.email(),
+  password: &#x27;Password123#&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="missingEmail"></a>
+                    <span class="name">
+                        <span ><b>missingEmail</b></span>
+                        <a href="#missingEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  firstName: faker.person.firstName(),
+  lastName: faker.person.lastName(),
+  password: &#x27;Password123#&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="missingPassword"></a>
+                    <span class="name">
+                        <span ><b>missingPassword</b></span>
+                        <a href="#missingPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  firstName: faker.person.firstName(),
+  lastName: faker.person.lastName(),
+  email: faker.internet.email(),
+}</code>
                     </td>
                 </tr>
 

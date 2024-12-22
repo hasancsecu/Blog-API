@@ -143,7 +143,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#oAuthClient" >oAuthClient</a>
+                                <a href="#oauthClient" >oauthClient</a>
                             </li>
                         </ul>
                     </td>
@@ -158,7 +158,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#authenticate" >authenticate</a>
                             </li>
@@ -183,12 +182,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(jwtConfiguration: ConfigType<>, usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, generateTokensProvider: <a href="../injectables/GenerateTokensProvider.html" target="_self">GenerateTokensProvider</a>)</code>
+<code>constructor(usersService: <a href="../injectables/UsersService.html" target="_self">UsersService</a>, jwtConfiguration: ConfigType<>, generateTokensProvider: <a href="../injectables/GenerateTokensProvider.html" target="_self">GenerateTokensProvider</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -206,10 +205,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>jwtConfiguration</td>
+                                                        <td>usersService</td>
                                                   
                                                         <td>
-                                                                    <code>ConfigType&lt;&gt;</code>
+                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -218,10 +217,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>usersService</td>
+                                                        <td>jwtConfiguration</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UsersService.html" target="_self" >UsersService</a></code>
+                                                                    <code>ConfigType&lt;&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -261,7 +260,6 @@
                 <td class="col-md-4">
                     <a name="authenticate"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
                             <span class="modifier">Async</span>
                         <span ><b>authenticate</b></span>
                         <a href="#authenticate"><span class="icon ion-ios-link"></span></a>
@@ -278,8 +276,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="34"
-                                    class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:34</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -345,8 +343,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -372,11 +370,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="oAuthClient"></a>
+                    <a name="oauthClient"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
-                        <span ><b>oAuthClient</b></span>
-                        <a href="#oAuthClient"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>oauthClient</b></span>
+                        <a href="#oauthClient"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -388,7 +386,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/auth/social/providers/google-authentication.service.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -402,64 +400,77 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  forwardRef,
   Inject,
   Injectable,
   OnModuleInit,
   UnauthorizedException,
+  forwardRef,
 } from &#x27;@nestjs/common&#x27;;
 import { ConfigType } from &#x27;@nestjs/config&#x27;;
-import { OAuth2Client } from &#x27;google-auth-library&#x27;;
 import jwtConfig from &#x27;src/auth/config/jwt.config&#x27;;
-import { GoogleTokenDto } from &#x27;../dtos/google-token.dto&#x27;;
+import { OAuth2Client } from &#x27;google-auth-library&#x27;;
 import { UsersService } from &#x27;src/users/providers/users.service&#x27;;
+import { GoogleTokenDto } from &#x27;../dtos/google-token.dto&#x27;;
 import { GenerateTokensProvider } from &#x27;src/auth/providers/generate-tokens.provider&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 import { User } from &#x27;src/users/user.entity&#x27;;
 
 @Injectable()
 export class GoogleAuthenticationService implements OnModuleInit {
-  private oAuthClient: OAuth2Client;
+  private oauthClient: OAuth2Client;
 
   constructor(
-    @Inject(jwtConfig.KEY)
-    private readonly jwtConfiguration: ConfigType&lt;typeof jwtConfig&gt;,
+    // Injecting UserService
     @Inject(forwardRef(() &#x3D;&gt; UsersService))
     private readonly usersService: UsersService,
+    /**
+     * Inject jwtConfiguration
+     */
+    @Inject(jwtConfig.KEY)
+    private readonly jwtConfiguration: ConfigType&lt;typeof jwtConfig&gt;,
+    /**
+     * Inject generateTokensProvider
+     */
     private readonly generateTokensProvider: GenerateTokensProvider,
   ) {}
 
   onModuleInit() {
     const clientId &#x3D; this.jwtConfiguration.googleClientId;
     const clientSecret &#x3D; this.jwtConfiguration.googleClientSecret;
-    this.oAuthClient &#x3D; new OAuth2Client(clientId, clientSecret);
+    this.oauthClient &#x3D; new OAuth2Client(clientId, clientSecret);
   }
 
-  public async authenticate(googleTokenDto: GoogleTokenDto) {
+  async authenticate(googleTokenDto: GoogleTokenDto) {
     try {
-      const logInTicket &#x3D; await this.oAuthClient.verifyIdToken({
+      // Verify the Google Token Sent By User
+      const loginTicket &#x3D; await this.oauthClient.verifyIdToken({
         idToken: googleTokenDto.token,
       });
-
+      // Extract the payload from Google Token
       const {
         email,
         sub: googleId,
         given_name: firstName,
         family_name: lastName,
-      } &#x3D; logInTicket.getPayload();
+      } &#x3D; loginTicket.getPayload();
+      // Find the user in the database using the googleId
+      const user &#x3D; await this.usersService.findOneByGoogleId(googleId);
 
-      let user: User &#x3D; await this.usersService.findOneByGoogleId(googleId);
+      // If user id found generate the tokens
       if (user) {
-        return this.generateTokensProvider.generateTokens(user);
+        return await this.generateTokensProvider.generateTokens(user);
+      } else {
+        // If not create a new user and generate the tokens
+        const newUser &#x3D; await this.usersService.createGoogleUser({
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          googleId: googleId,
+        });
+        return await this.generateTokensProvider.generateTokens(newUser);
       }
 
-      let newUser &#x3D; await this.usersService.createGoogleUser({
-        email,
-        googleId,
-        firstName,
-        lastName,
-      });
-
-      return this.generateTokensProvider.generateTokens(newUser);
+      // throw Unauthorised exception if not Authorised
     } catch (error) {
       throw new UnauthorizedException(error);
     }

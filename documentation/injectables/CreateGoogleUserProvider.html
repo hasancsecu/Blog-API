@@ -170,7 +170,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/users/providers/create-google-user.provider.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/users/providers/create-google-user.provider.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -229,15 +229,15 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createGoogleUser(createGoogleUserDto: <a href="../classes/CreateGoogleUserDto.html" target="_self">CreateGoogleUserDto</a>)</code>
+                    <code>createGoogleUser(googleUser: <a href="../interfaces/GoogleUser.html" target="_self">GoogleUser</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">src/users/providers/create-google-user.provider.ts:18</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/users/providers/create-google-user.provider.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -258,9 +258,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>createGoogleUserDto</td>
+                                                <td>googleUser</td>
                                             <td>
-                                                            <code><a href="../classes/CreateGoogleUserDto.html" target="_self" >CreateGoogleUserDto</a></code>
+                                                            <code><a href="../interfaces/GoogleUser.html" target="_self" >GoogleUser</a></code>
                                             </td>
 
                                             <td>
@@ -289,30 +289,34 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  ConflictException,
-  Injectable,
-  RequestTimeoutException,
-} from &#x27;@nestjs/common&#x27;;
-import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { User } from &#x27;../user.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConflictException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { Repository } from &#x27;typeorm&#x27;;
-import { CreateGoogleUserDto } from &#x27;../dtos/create-google-user.dto&#x27;;
+import { User } from &#x27;../user.entity&#x27;;
+import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import { GoogleUser } from &#x27;../interfaces/google-user.inerface&#x27;;
 
 @Injectable()
 export class CreateGoogleUserProvider {
   constructor(
+    /**
+     * Inject usersRepository
+     */
     @InjectRepository(User)
     private readonly usersRepository: Repository&lt;User&gt;,
   ) {}
 
-  public async createGoogleUser(createGoogleUserDto: CreateGoogleUserDto) {
+  public async createGoogleUser(googleUser: GoogleUser) {
     try {
-      let newUser &#x3D; this.usersRepository.create(createGoogleUserDto);
-      return await this.usersRepository.save(newUser);
+      const user &#x3D; this.usersRepository.create({
+        firstName: googleUser.firstName,
+        lastName: googleUser.lastName,
+        googleId: googleUser.googleId,
+        email: googleUser.email,
+      });
+      return await this.usersRepository.save(user);
     } catch (error) {
-      throw new ConflictException(&#x27;Error saving user&#x27;, {
-        description: error,
+      throw new ConflictException(error, {
+        description: &#x27;Could not create a new user&#x27;,
       });
     }
   }

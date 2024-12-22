@@ -143,9 +143,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#sendWelcomeMail" >sendWelcomeMail</a>
+                                <a href="#sendUserWelcome" >sendUserWelcome</a>
                             </li>
                         </ul>
                     </td>
@@ -217,19 +216,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sendWelcomeMail"></a>
+                    <a name="sendUserWelcome"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
                             <span class="modifier">Async</span>
-                        <span ><b>sendWelcomeMail</b></span>
-                        <a href="#sendWelcomeMail"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>sendUserWelcome</b></span>
+                        <a href="#sendUserWelcome"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>sendWelcomeMail(user: <a href="../entitys/User.html" target="_self">User</a>)</code>
+                    <code>sendUserWelcome(user: <a href="../entitys/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -273,7 +271,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -289,22 +287,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MailerService } from &#x27;@nestjs-modules/mailer&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { MailerService } from &#x27;@nestjs-modules/mailer&#x27;;
 import { User } from &#x27;src/users/user.entity&#x27;;
 
 @Injectable()
 export class MailService {
-  constructor(private readonly mailerService: MailerService) {}
+  constructor(private mailerService: MailerService) {}
 
-  public async sendWelcomeMail(user: User) {
+  async sendUserWelcome(user: User): Promise&lt;void&gt; {
     await this.mailerService.sendMail({
       to: user.email,
-      subject: &#x27;Welcome to nestjs blog&#x27;,
+      // override default from
+      from: &#x27;&quot;Onbaording Team&quot; &lt;support@nestjs-blog.com&gt;&#x27;,
+      subject: &#x27;Welcome to NestJs Blog&#x27;,
+      // &#x60;.ejs&#x60; extension is appended automatically to template
       template: &#x27;./welcome&#x27;,
+      // Context is available in email template
       context: {
-        email: user.email,
         name: user.firstName,
+        email: user.email,
         loginUrl: &#x27;http://localhost:3000&#x27;,
       },
     });

@@ -86,7 +86,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content guard">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -96,11 +96,9 @@
 
 
 
-
-
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Guards</li>
-    <li class="breadcrumb-item" >AuthenticationGuard</li>
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UploadToAwsProvider</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -119,45 +117,22 @@
 </ul>
 
 <div class="tab-content">
-        <div class="tab-pane fade active in" id="info">
-            <p class="comment">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
             <h3>File</h3>
-            </p>
-            <p class="comment">
-                <code>src/auth/guards/authentication/authentication.guard.ts</code>
-            </p>
+        </p>
+        <p class="comment">
+            <code>src/uploads/providers/upload-to-aws.provider.ts</code>
+        </p>
 
 
 
 
 
-
-                <section data-compodoc="block-index">
+            <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#authTypeGuardMap" >authTypeGuardMap</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Static</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#defaultAuthType" >defaultAuthType</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -168,8 +143,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
-                                <a href="#canActivate" >canActivate</a>
+                                <a href="#fileupload" >fileupload</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#generateFileName" >generateFileName</a>
                             </li>
                         </ul>
                     </td>
@@ -183,18 +163,18 @@
     </table>
 </section>
 
-                <section data-compodoc="block-constructor">
+            <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(reflector: Reflector, accessTokenGuard: <a href="../guards/AccessTokenGuard.html" target="_self">AccessTokenGuard</a>)</code>
+<code>constructor(configService: ConfigService)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/auth/guards/authentication/authentication.guard.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/uploads/providers/upload-to-aws.provider.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -212,22 +192,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>reflector</td>
+                                                        <td>configService</td>
                                                   
                                                         <td>
-                                                                    <code>Reflector</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>accessTokenGuard</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../guards/AccessTokenGuard.html" target="_self" >AccessTokenGuard</a></code>
+                                                                    <code>ConfigService</code>
                                                         </td>
                                                   
                                                     <td>
@@ -244,7 +212,7 @@
         </table>
 </section>
 
-                <section data-compodoc="block-methods">
+            <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -253,26 +221,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="canActivate"></a>
+                    <a name="fileupload"></a>
                     <span class="name">
+                            <span class="modifier">Public</span>
                             <span class="modifier">Async</span>
-                        <span ><b>canActivate</b></span>
-                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>fileupload</b></span>
+                        <a href="#fileupload"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>canActivate(context: ExecutionContext)</code>
+                    <code>fileupload(file: Express.Multer.File)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/auth/guards/authentication/authentication.guard.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="14"
+                                    class="link-to-prism">src/uploads/providers/upload-to-aws.provider.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -293,9 +262,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>context</td>
+                                                <td>file</td>
                                             <td>
-                                                        <code>ExecutionContext</code>
+                                                        <code>Express.Multer.File</code>
                                             </td>
 
                                             <td>
@@ -308,7 +277,76 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateFileName"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>generateFileName</b></span>
+                        <a href="#generateFileName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateFileName(file: Express.Multer.File)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/uploads/providers/upload-to-aws.provider.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>file</td>
+                                            <td>
+                                                        <code>Express.Multer.File</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </div>
                             <div class="io-description">
@@ -319,75 +357,62 @@
         </tbody>
     </table>
 </section>
-        </div>
+
+    </div>
 
 
-        <div class="tab-pane fade  tab-source-code" id="source">
-            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  CanActivate,
-  ExecutionContext,
-  Injectable,
-  UnauthorizedException,
-} from &#x27;@nestjs/common&#x27;;
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import * as path from &#x27;path&#x27;;
 
-import { AUTH_TYPE_KEY } from &#x27;src/auth/decorators/auth.decorator&#x27;;
-import { AccessTokenGuard } from &#x27;../access-token/access-token.guard&#x27;;
-import { AuthType } from &#x27;src/auth/enums/auth-type.enum&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { Reflector } from &#x27;@nestjs/core&#x27;;
+import { Injectable, RequestTimeoutException } from &#x27;@nestjs/common&#x27;;
+
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { Express } from &#x27;express&#x27;;
+import { S3 } from &#x27;aws-sdk&#x27;;
+import { v4 as uuidv4 } from &#x27;uuid&#x27;;
 
 @Injectable()
-export class AuthenticationGuard implements CanActivate {
-  // Set the default Auth Type
-  private static readonly defaultAuthType &#x3D; AuthType.Bearer;
+export class UploadToAwsProvider {
+  constructor(private readonly configService: ConfigService) {}
 
-  // Create authTypeGuardMap
-  private readonly authTypeGuardMap: Record&lt;
-    AuthType,
-    CanActivate | CanActivate[]
-  &gt; &#x3D; {
-    [AuthType.Bearer]: this.accessTokenGuard,
-    [AuthType.None]: { canActivate: () &#x3D;&gt; true },
-  };
+  public async fileupload(file: Express.Multer.File) {
+    const s3 &#x3D; new S3();
+    try {
+      const uploadResult &#x3D; await s3
+        .upload({
+          Bucket: this.configService.get&lt;string&gt;(&#x27;appConfig.awsBucketName&#x27;),
+          Body: file.buffer,
+          Key: this.generateFileName(file),
+          ContentType: file.mimetype,
+        })
+        .promise(); // Promisify the request
 
-  constructor(
-    private readonly reflector: Reflector,
-    private readonly accessTokenGuard: AccessTokenGuard,
-  ) {}
-
-  async canActivate(context: ExecutionContext): Promise&lt;boolean&gt; {
-    const authTypes &#x3D; this.reflector.getAllAndOverride&lt;AuthType[]&gt;(
-      AUTH_TYPE_KEY,
-      [context.getHandler(), context.getClass()],
-    ) ?? [AuthenticationGuard.defaultAuthType];
-
-    const guards &#x3D; authTypes.map((type) &#x3D;&gt; this.authTypeGuardMap[type]).flat();
-
-    // Declare the default error
-    let error &#x3D; new UnauthorizedException();
-
-    for (const instance of guards) {
-      // Decalre a new constant
-      const canActivate &#x3D; await Promise.resolve(
-        // Here the AccessToken Guard Will be fired and check if user has permissions to acces
-        // Later Multiple AuthTypes can be used even if one of them returns true
-        // The user is Authorised to access the resource
-        instance.canActivate(context),
-      ).catch((err) &#x3D;&gt; {
-        error &#x3D; err;
-      });
-
-      if (canActivate) {
-        return true;
-      }
+      // Return the file name
+      return uploadResult.Key;
+    } catch (error) {
+      throw new RequestTimeoutException(error);
     }
+  }
 
-    throw error;
+  private generateFileName(file: Express.Multer.File) {
+    // extract file name
+    let name &#x3D; file.originalname.split(&#x27;.&#x27;)[0];
+    // Remove spaces in the file name
+    name.replace(/\s/g, &#x27;&#x27;).trim();
+    // extract file extension
+    let extension &#x3D; path.extname(file.originalname);
+    // Generate a timestamp
+    let timeStamp &#x3D; new Date().getTime().toString().trim();
+    // Return new fileName
+    return &#x60;${name}-${timeStamp}-${uuidv4()}${extension}&#x60;;
   }
 }
 </code></pre>
-        </div>
+    </div>
+
 </div>
+
+
 
 
 
@@ -424,8 +449,8 @@ export class AuthenticationGuard implements CanActivate {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthenticationGuard.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UploadToAwsProvider.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

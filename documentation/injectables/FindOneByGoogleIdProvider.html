@@ -236,8 +236,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/users/providers/find-one-by-google-id.provider.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="16"
+                                    class="link-to-prism">src/users/providers/find-one-by-google-id.provider.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -291,12 +291,15 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
 import { User } from &#x27;../user.entity&#x27;;
+import { Repository } from &#x27;typeorm&#x27;;
 
 @Injectable()
 export class FindOneByGoogleIdProvider {
   constructor(
+    /**
+     * Inject usersRepository
+     */
     @InjectRepository(User)
     private readonly usersRepository: Repository&lt;User&gt;,
   ) {}

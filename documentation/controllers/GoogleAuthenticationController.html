@@ -149,9 +149,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
-                                    <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#authenticate" >authenticate</a>
                             </li>
                         </ul>
@@ -178,9 +175,6 @@
                     <a name="authenticate"></a>
                     <span class="name">
                             <span class="modifier"></span>
-                            <span class="modifier"></span>
-                            <span class="modifier">Public</span>
-                            <span class="modifier">Async</span>
                         <span ><b>authenticate</b></span>
                         <a href="#authenticate"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -197,14 +191,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post()<br />@Auth(AuthType.None)<br /></code>
+                    <code>@Post()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/auth/social/google-authentication.controller.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/auth/social/google-authentication.controller.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -240,7 +234,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>unknown</code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -254,22 +248,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
-import { GoogleAuthenticationService } from &#x27;./providers/google-authentication.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { GoogleAuthenticationService } from &#x27;./providers/google-authentication.service&#x27;;
+import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
 import { GoogleTokenDto } from &#x27;./dtos/google-token.dto&#x27;;
 import { Auth } from &#x27;../decorators/auth.decorator&#x27;;
 import { AuthType } from &#x27;../enums/auth-type.enum&#x27;;
 
+@Auth(AuthType.None)
 @Controller(&#x27;auth/google-authentication&#x27;)
 export class GoogleAuthenticationController {
   constructor(
+    /**
+     * Inject googleAuthenticationService
+     */
     private readonly googleAuthenticationService: GoogleAuthenticationService,
   ) {}
 
   @Post()
-  @Auth(AuthType.None)
-  public async authenticate(@Body() googleTokenDto: GoogleTokenDto) {
-    return await this.googleAuthenticationService.authenticate(googleTokenDto);
+  authenticate(@Body() googleTokenDto: GoogleTokenDto) {
+    return this.googleAuthenticationService.authenticate(googleTokenDto);
   }
 }
 </code></pre>
