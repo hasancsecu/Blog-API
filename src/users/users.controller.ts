@@ -1,20 +1,13 @@
 import {
   Controller,
-  Delete,
   Get,
   Param,
   Patch,
   Post,
-  Put,
   Query,
   Body,
-  Headers,
-  Ip,
   ParseIntPipe,
   DefaultValuePipe,
-  ValidationPipe,
-  UseGuards,
-  SetMetadata,
   UseInterceptors,
   ClassSerializerInterceptor,
 } from '@nestjs/common';
@@ -69,8 +62,8 @@ export class UsersController {
 
   @Post()
   // @SetMetadata('authType', 'none')
-  @Auth(AuthType.None)
   @UseInterceptors(ClassSerializerInterceptor)
+  @Auth(AuthType.None)
   public createUsers(@Body() createUserDto: CreateUserDto) {
     return this.usersService.createUser(createUserDto);
   }

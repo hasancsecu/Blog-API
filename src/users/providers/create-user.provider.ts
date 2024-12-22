@@ -1,3 +1,4 @@
+import { BcryptProvider } from './../../auth/providers/bcrypt.provider';
 import {
   BadRequestException,
   Inject,
@@ -27,6 +28,9 @@ export class CreateUserProvider {
     @Inject(forwardRef(() => HashingProvider))
     private readonly hashingProvider: HashingProvider,
 
+    /**
+     * Inject mailService
+     */
     private readonly mailService: MailService,
   ) {}
 
@@ -74,7 +78,7 @@ export class CreateUserProvider {
     }
 
     try {
-      await this.mailService.sendWelcomeMail(newUser);
+      await this.mailService.sendUserWelcome(newUser);
     } catch (error) {
       throw new RequestTimeoutException(error);
     }

@@ -1,11 +1,12 @@
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { AccessTokenGuard } from './auth/guards/access-token/access-token.guard';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { AuthenticationGuard } from './auth/guards/authentication/authentication.guard';
+import { DataResponseInterceptor } from './common/interceptors/data-response/data-response.interceptor';
 import { JwtModule } from '@nestjs/jwt';
 import { MetaOptionsModule } from './meta-options/meta-options.module';
 import { Module } from '@nestjs/common';
@@ -19,12 +20,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
  * */
 import { User } from './users/user.entity';
 import { UsersModule } from './users/users.module';
+import { UploadsModule } from './uploads/uploads.module';
+import { MailModule } from './mail/mail.module';
 import appConfig from './config/app.config';
 import databaseConfig from './config/database.config';
 import enviromentValidation from './config/enviroment.validation';
 import jwtConfig from './auth/config/jwt.config';
-import { DataResponseInterceptor } from './common/interceptors/data-response/data-response.interceptor';
-import { MailModule } from './mail/mail.module';
 
 // Get the current NODE_ENV
 const ENV = process.env.NODE_ENV;
@@ -61,15 +62,19 @@ const ENV = process.env.NODE_ENV;
     TagsModule,
     MetaOptionsModule,
     PaginationModule,
+    UploadsModule,
     MailModule,
   ],
   controllers: [AppController],
   providers: [
     AppService,
-    { provide: APP_INTERCEPTOR, useClass: DataResponseInterceptor },
     {
       provide: APP_GUARD,
       useClass: AuthenticationGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: DataResponseInterceptor,
     },
     AccessTokenGuard,
   ],

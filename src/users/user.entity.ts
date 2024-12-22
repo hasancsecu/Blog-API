@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Post } from 'src/posts/post.entity';
 import { Exclude } from 'class-transformer';
+import { Post } from 'src/posts/post.entity';
 
 @Entity()
 export class User {
@@ -46,5 +46,5 @@ export class User {
   googleId?: string;
 
   @OneToMany(() => Post, (post) => post.author)
-  posts: Post[];
+  posts?: Post[];
 }

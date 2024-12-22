@@ -1,5 +1,5 @@
 import { CreateUserDto } from './../dtos/create-user.dto';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { GetUsersParamDto } from '../dtos/get-users-param.dto';
 import {
   BadRequestException,
@@ -8,6 +8,7 @@ import {
   Inject,
   Injectable,
   RequestTimeoutException,
+  forwardRef,
 } from '@nestjs/common';
 import { User } from '../user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -19,7 +20,7 @@ import { CreateUserProvider } from './create-user.provider';
 import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
 import { FindOneByGoogleIdProvider } from './find-one-by-google-id.provider';
 import { CreateGoogleUserProvider } from './create-google-user.provider';
-import { CreateGoogleUserDto } from '../dtos/create-google-user.dto';
+import { GoogleUser } from '../interfaces/google-user.inerface';
 
 /**
  * Controller class for '/users' API endpoint
@@ -31,10 +32,7 @@ export class UsersService {
      * Injecting usersRepository
      */
     @InjectRepository(User)
-    private readonly usersRepository: Repository<User>,
-
-    @Inject(profileConfig.KEY)
-    private readonly profileConfiguration: ConfigType<typeof profileConfig>,
+    private usersRepository: Repository<User>,
 
     /**
      * Inject UsersCreateMany provider
@@ -49,14 +47,15 @@ export class UsersService {
      * Inject findOneUserByEmailProvider
      */
     private readonly findOneUserByEmailProvider: FindOneUserByEmailProvider,
+
     /**
-     * Inject findOneByGoogleIdrovider
+     * Inject findOneByGoogleIdProvider
      */
-    private readonly findOneByGoogleIdrovider: FindOneByGoogleIdProvider,
+    private readonly findOneByGoogleIdProvider: FindOneByGoogleIdProvider,
     /**
-     * Inject createGoogleUserProvider
+     * Inject createGooogleUserProvider
      */
-    private readonly createGoogleUserProvider: CreateGoogleUserProvider,
+    private readonly createGooogleUserProvider: CreateGoogleUserProvider,
   ) {}
 
   /**
@@ -128,12 +127,10 @@ export class UsersService {
   }
 
   public async findOneByGoogleId(googleId: string) {
-    return await this.findOneByGoogleIdrovider.findOneByGoogleId(googleId);
+    return await this.findOneByGoogleIdProvider.findOneByGoogleId(googleId);
   }
 
-  public async createGoogleUser(createGoogleUserDto: CreateGoogleUserDto) {
-    return await this.createGoogleUserProvider.createGoogleUser(
-      createGoogleUserDto,
-    );
+  public async createGoogleUser(googleUser: GoogleUser) {
+    return await this.createGooogleUserProvider.createGoogleUser(googleUser);
   }
 }
